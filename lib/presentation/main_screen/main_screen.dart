@@ -1,3 +1,4 @@
+import 'package:calendar_scheduler/presentation/add_item_screen/add_item_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -19,6 +20,19 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => AddItemScreen(
+                focusday: _focusedDay,
+              ),
+            ),
+          );
+        },
+        child: const Icon(Icons.add),
+      ),
       drawer: Drawer(
         child: ListView(
           // Important: Remove any padding from the ListView.
